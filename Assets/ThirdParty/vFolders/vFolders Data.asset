@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adb9c12a8c6c949f7af83a3d238359d0, type: 3}
+  m_Name: vFolders Data
+  m_EditorClassIdentifier: 
+  folderDatas_byGuid:
+    keys:
+    - 179cc2c032539fc47993c157f437613b
+    - 597e8f998aaa58843866fe5f7cc6d08b
+    - f01e27e47cc68d743bbde72e280123a5
+    - 0670f472637e47d449f2c7b7a17e70ec
+    - a25ccbe71f1be8e479545e271de774aa
+    - c37fadab1c86374489b4542f361b2e7b
+    - f30d359973ac7fa438bbb44ac4b0adc0
+    - 4583123764dc5284a92f945080cf5900
+    - 5c794332e3e239a48abe1afecc2bca50
+    - e00a3239ec641494eb0b1019d3e83032
+    values:
+    - colorIndex: 0
+      iconNameOrGuid: Font Icon
+    - colorIndex: 0
+      iconNameOrGuid: AnimationClip Icon
+    - colorIndex: 0
+      iconNameOrGuid: PrefabModel Icon
+    - colorIndex: 0
+      iconNameOrGuid: Settings Icon
+    - colorIndex: 0
+      iconNameOrGuid: SceneAsset Icon
+    - colorIndex: 0
+      iconNameOrGuid: cs Script Icon
+    - colorIndex: 0
+      iconNameOrGuid: TextAsset Icon
+    - colorIndex: 0
+      iconNameOrGuid: AudioSource Icon
+    - colorIndex: 0
+      iconNameOrGuid: AssemblyDefinitionAsset Icon
+    - colorIndex: 0
+      iconNameOrGuid: Material Icon

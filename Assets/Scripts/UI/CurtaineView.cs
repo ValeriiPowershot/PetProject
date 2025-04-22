@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 namespace UI
 {
@@ -10,42 +10,25 @@ namespace UI
         [SerializeField] private Image _fadeImage;
         [SerializeField] private float _fadeDuration = 0.5f;
 
-        private Coroutine _currentRoutine;
+        private Tween _currentTween;
 
         public void FadeIn(Action onComplete = null)
         {
-            StartFade(1, onComplete);
+            StartFade(1f, onComplete);
         }
 
         public void FadeOut(Action onComplete = null)
         {
-            StartFade(0, onComplete);
+            StartFade(0f, onComplete);
         }
 
         private void StartFade(float targetAlpha, Action onComplete)
         {
-            if (_currentRoutine != null)
-                StopCoroutine(_currentRoutine);
+            _currentTween?.Kill();
 
-            _currentRoutine = StartCoroutine(FadeRoutine(targetAlpha, onComplete));
-        }
-
-        private IEnumerator FadeRoutine(float targetAlpha, Action onComplete)
-        {
-            float startAlpha = _fadeImage.color.a;
-            float time = 0;
-
-            while (time < _fadeDuration)
-            {
-                time += Time.deltaTime;
-                float t = time / _fadeDuration;
-                float alpha = Mathf.Lerp(startAlpha, targetAlpha, t);
-                _fadeImage.color = new Color(0, 0, 0, alpha);
-                yield return null;
-            }
-
-            _fadeImage.color = new Color(0, 0, 0, targetAlpha);
-            onComplete?.Invoke();
+            _currentTween = _fadeImage.DOFade(targetAlpha, _fadeDuration)
+                .SetEase(Ease.Linear)
+                .OnComplete(() => onComplete?.Invoke());
         }
     }
 }
