@@ -17,9 +17,13 @@ namespace Services
         public void Show(Action onComplete = null)
         {
             if (_enabled)
+            {
                 _curtain.FadeIn(onComplete);
+            }
             else
+            {
                 onComplete?.Invoke();
+            }
         }
 
         public void Hide(Action onComplete = null)

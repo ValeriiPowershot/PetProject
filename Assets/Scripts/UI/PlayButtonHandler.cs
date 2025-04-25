@@ -1,3 +1,5 @@
+using System;
+using Core;
 using Services;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,16 +10,22 @@ namespace UI
     public class PlayButtonHandler : MonoBehaviour
     {
         [SerializeField] private Button _playButton;
-        [SerializeField] private CurtainService _curtainService;
         [SerializeField] private string _targetSceneName = "GameScene";
         [SerializeField] private float _transitionDelay = 0.5f;
+
+        private CurtainService _curtainService;
+
+        private void Awake()
+        {
+            _curtainService = GameInstaller.Container.Resolve<CurtainService>();
+        }
 
         private void Start()
         {
             _playButton.onClick.AddListener(OnPlayClicked);
         }
 
-        private void OnPlayClicked()
+        public void OnPlayClicked()
         {
             _playButton.interactable = false;
 

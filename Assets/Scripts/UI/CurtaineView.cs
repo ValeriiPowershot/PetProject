@@ -14,12 +14,17 @@ namespace UI
 
         public void FadeIn(Action onComplete = null)
         {
+            gameObject.SetActive(true);
             StartFade(1f, onComplete);
         }
 
         public void FadeOut(Action onComplete = null)
         {
-            StartFade(0f, onComplete);
+            StartFade(0f, () =>
+            {
+                gameObject.SetActive(false);
+                onComplete?.Invoke();
+            });
         }
 
         private void StartFade(float targetAlpha, Action onComplete)
